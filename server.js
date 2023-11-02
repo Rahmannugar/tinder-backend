@@ -28,13 +28,13 @@ app.get("/", (req, res) => {
 app.post("/cards", (req, res) => {
   const dbCard = req.body;
 
-  Cards.create(dbCard, (err, data) => {
-    if (err) {
-      res.status(500).send(err);
-    } else {
+  Cards.create(dbCard)
+    .then((data) => {
       res.status(201).send(data);
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(500).send(err);
+    });
 });
 
 app.get("/cards", (req, res) => {
