@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const Cards = require("./cardsDB");
 require("dotenv").config();
+const cors = require("cors");
 
 //App config
 const app = express();
@@ -10,6 +11,8 @@ const mongoUrl =
   "mongodb+srv://Rahmannugar:Nugarcladex@cluster0.s6blitt.mongodb.net/?retryWrites=true&w=majority";
 
 //Middlewares
+app.use(express.json());
+app.use(cors());
 
 //DB config
 mongoose.connect(mongoUrl, {
