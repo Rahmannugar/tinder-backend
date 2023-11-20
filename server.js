@@ -7,9 +7,7 @@ const cors = require("cors");
 //App config
 const app = express();
 const port = process.env.PORT;
-const mongoUrl =
-  "mongodb+srv://Rahmannugar:Nugarcladex@cluster0.s6blitt.mongodb.net/?retryWrites=true&w=majority";
-
+const mongoUrl = process.env.MONGOURL;
 //Middlewares
 app.use(express.json());
 app.use(cors());
